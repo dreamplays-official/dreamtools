@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamTool — Free Online Tools for Images, PDFs, QR & Content</title>
+    <meta name="description" content="Powerful free online tools built for everyone. Simple, fast and practical utilities for images, PDFs, QR codes, calculations, and content creation.">
+    <meta name="keywords" content="free online tools, image compressor, qr code generator, pdf tools, age calculator, youtube title generator">
+    <link rel="canonical" href="https://dreamtool.dreamplays.hq/">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="DreamTool — Powerful Free Online Tools">
+    <meta property="og:description" content="Simple, fast and practical utilities for images, PDFs, QR codes, and content creation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dreamtool.dreamplays.hq/">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            900: '#1e3a8a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DreamTool",
+      "url": "https://dreamtool.dreamplays.hq/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://dreamtool.dreamplays.hq/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DreamPlays HQ",
+      "url": "https://dreamplays.hq/",
+      "logo": "https://dreamtool.dreamplays.hq/logo.png"
+    }
+    </script>
+</head>
+<body class="bg-white text-slate-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-900 flex flex-col min-h-screen">
+
+    <!-- Top Announcement / Brand Bar -->
+    <header class="border-b border-slate-100 sticky top-0 z-40 bg-white/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-700 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-brand-500/20">
+                    D
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">Dream<span class="text-brand-600">Tool</span></span>
+                    <span class="block text-[10px] uppercase tracking-wider text-slate-400 font-medium">A DreamPlays HQ Project</span>
+                </div>
+            </div>
+
+            <!-- Global Search & Nav -->
+            <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </span>
+                    <input type="text" id="globalSearch" placeholder="Search 12+ free tools (e.g., QR, PDF, Compressor)..." oninput="handleGlobalSearch(this.value)" class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                </div>
+            </div>
+
+            <nav class="flex items-center space-x-1 sm:space-x-3">
+                <button onclick="navigateTo('home')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 rounded-lg transition">Tools</button>
+                <button onclick="navigateTo('categories')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 rounded-lg transition">Categories</button>
+                <button onclick="navigateTo('guides')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 rounded-lg transition">Guides</button>
+                <button onclick="navigateTo('about')" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 rounded-lg transition">About</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- AdSlot: Header/Top Banner Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <div class="w-full bg-slate-50 border border-dashed border-slate-200 rounded-lg p-3 text-center text-xs text-slate-400 flex items-center justify-center space-x-2">
+            <span class="uppercase tracking-wider font-semibold text-[10px] bg-slate-200 text-slate-600 px-1.5 py-0.5 rounded">Ad Space</span>
+            <span>Advertisement Container (Reserved for Ad Network)</span>
+        </div>
+    </div>
+
+    <!-- Main Content Dynamic Viewport -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full" id="mainView">
+        <!-- Rendered via JavaScript client-side routing -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg">D</div>
+                        <span class="text-lg font-bold text-white tracking-tight">Dream<span class="text-brand-500">Tool</span></span>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">A DreamPlays HQ Project. Powerful free online tools, built for everyone with privacy and speed in mind.</p>
+                    <p class="text-xs text-slate-500">© 2026 DreamPlays™. All rights reserved.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Tool Categories</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" onclick="filterCategory('Image Tools'); return false;" class="hover:text-white transition">Image Tools & Compressor</a></li>
+                        <li><a href="#" onclick="filterCategory('PDF Tools'); return false;" class="hover:text-white transition">PDF Utilities & Merge</a></li>
+                        <li><a href="#" onclick="filterCategory('QR Tools'); return false;" class="hover:text-white transition">QR Code Generator</a></li>
+                        <li><a href="#" onclick="filterCategory('Creator Tools'); return false;" class="hover:text-white transition">YouTube & Creator Tools</a></li>
+                        <li><a href="#" onclick="filterCategory('Calculators'); return false;" class="hover:text-white transition">Age & Unit Calculators</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Information & Legal</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="navigateTo('about')" class="hover:text-white transition">About Us</button></li>
+                        <li><button onclick="navigateTo('contact')" class="hover:text-white transition">Contact Us</button></li>
+                        <li><button onclick="navigateTo('privacy')" class="hover:text-white transition">Privacy Policy</button></li>
+                        <li><button onclick="navigateTo('terms')" class="hover:text-white transition">Terms of Service</button></li>
+                        <li><button onclick="navigateTo('disclaimer')" class="hover:text-white transition">Disclaimer</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Guides & Resources</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="navigateTo('guides')" class="hover:text-white transition">Guides & Articles Hub</button></li>
+                        <li><button onclick="navigateTo('cookies')" class="hover:text-white transition">Cookie Policy</button></li>
+                        <li><button onclick="navigateTo('accessibility')" class="hover:text-white transition">Accessibility Statement</button></li>
+                        <li><button onclick="navigateTo('sitemap')" class="hover:text-white transition">Sitemap Index</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>Designed for global utility. All client-side processing respects your local privacy.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <button onclick="navigateTo('privacy')" class="hover:text-slate-400">Privacy</button>
+                    <button onclick="navigateTo('terms')" class="hover:text-slate-400">Terms</button>
+                    <button onclick="navigateTo('contact')" class="hover:text-slate-400">Support</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Core -->
+    <script>
+        // --- Tool Catalog Definition ---
+        const toolsData = [
+            {
+                id: 'qr-generator',
+                name: 'QR Code Generator',
+                category: 'QR Tools',
+                icon: 'qr-code',
+                description: 'Generate high-resolution customizable QR codes instantly for URLs, text, email, and contact info.',
+                badge: 'Popular'
+            },
+            {
+                id: 'image-compressor',
+                name: 'Image Compressor',
+                category: 'Image Tools',
+                icon: 'minimize-2',
+                description: 'Compress JPG, PNG, and WebP images securely in your browser with real-time size reduction.',
+                badge: 'Popular'
+            },
+            {
+                id: 'image-to-pdf',
+                name: 'Image to PDF Converter',
+                category: 'PDF Tools',
+                icon: 'file-text',
+                description: 'Combine multiple JPG or PNG images into a single professional PDF document instantly.',
+                badge: 'Popular'
+            },
+            {
+                id: 'age-calculator',
+                name: 'Age Calculator',
+                category: 'Calculators',
+                icon: 'calendar',
+                description: 'Calculate exact age in years, months, days, hours, and total days lived from date of birth.',
+                badge: 'Fast'
+            },
+            {
+                id: 'youtube-title-generator',
+                name: 'YouTube Title Generator',
+                category: 'Creator Tools',
+                icon: 'youtube',
+                description: 'Generate optimized, engaging title suggestions based on topic, tone, and keywords.',
+                badge: 'Creator'
+            },
+            {
+                id: 'youtube-description-generator',
+                name: 'YouTube Description Generator',
+                category: 'Creator Tools',
+                icon: 'file-code',
+                description: 'Create structured YouTube descriptions with opening hooks, key points, and CTAs.',
+                badge: 'Creator'
+            },
+            {
+                id: 'hashtag-generator',
+                name: 'Hashtag Generator',
+                category: 'Creator Tools',
+                icon: 'hash',
+                description: 'Generate clean, relevant, non-spammy hashtags for video and social post discoverability.',
+                badge: 'Creator'
+            },
+            {
+                id: 'name-decider',
+                name: 'Name Decider & Generator',
+                category: 'Calculators',
+                icon: 'users',
+                description: 'Explore name ideas, meanings, and cultural origins for characters, projects, or babies.',
+                badge: 'Utility'
+            },
+            {
+                id: 'image-resizer',
+                name: 'Image Pixel Resizer',
+                category: 'Image Tools',
+                icon: 'maximize',
+                description: 'Resize image dimensions in pixels, adjust width/height ratios, and export instantly.',
+                badge: 'Utility'
+            },
+            {
+                id: 'image-converter',
+                name: 'Image Format Converter',
+                category: 'Image Tools',
+                icon: 'repeat',
+                description: 'Convert images smoothly between JPG, PNG, and WebP formats directly in client browser.',
+                badge: 'Fast'
+            },
+            {
+                id: 'social-link-maker',
+                name: 'Social Media Link Maker',
+                category: 'Creator Tools',
+                icon: 'share-2',
+                description: 'Consolidate and format your professional social profile links into a clean shareable block.',
+                badge: 'Utility'
+            },
+            {
+                id: 'pdf-tools',
+                name: 'PDF Tools Hub & Organizer',
+                category: 'PDF Tools',
+                icon: 'folder',
+                description: 'Manage PDF files, extract metadata, text conversions, and basic document assembly.',
+                badge: 'Essential'
+            }
+        ];
+
+        // --- Router State ---
+        let currentRoute = 'home';
+        let activeCategoryFilter = 'All';
+        let searchQuery = '';
+
+        function navigateTo(route, param = null) {
+            currentRoute = route;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderApp(param);
+            setTimeout(() => {
+                if (window.lucide) lucide.createIcons();
+            }, 50);
+        }
+
+        function filterCategory(cat) {
+            activeCategoryFilter = cat;
+            navigateTo('home');
+            setTimeout(() => {
+                const el = document.getElementById('toolsSection');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        function handleGlobalSearch(val) {
+            searchQuery = val.toLowerCase();
+            if (currentRoute !== 'home') {
+                navigateTo('home');
+            }
+            renderToolsGrid();
+        }
+
+        // --- Render Core ---
+        function renderApp(param = null) {
+            const main = document.getElementById('mainView');
+            if (!main) return;
+
+            if (currentRoute === 'home') {
+                main.innerHTML = renderHomePage();
+                renderToolsGrid();
+            } else if (currentRoute === 'categories') {
+                main.innerHTML = renderCategoriesPage();
+            } else if (currentRoute === 'guides') {
+                main.innerHTML = renderGuidesPage();
+            } else if (currentRoute === 'about') {
+                main.innerHTML = renderStaticPage('About Us', getAboutContent());
+            } else if (currentRoute === 'contact') {
+                main.innerHTML = renderStaticPage('Contact Us', getContactContent());
+            } else if (currentRoute === 'privacy') {
+                main.innerHTML = renderStaticPage('Privacy Policy', getPrivacyContent());
+            } else if (currentRoute === 'terms') {
+                main.innerHTML = renderStaticPage('Terms of Service', getTermsContent());
+            } else if (currentRoute === 'disclaimer') {
+                main.innerHTML = renderStaticPage('Disclaimer', getDisclaimerContent());
+            } else if (currentRoute === 'cookies') {
+                main.innerHTML = renderStaticPage('Cookie Policy', getCookiesContent());
+            } else if (currentRoute === 'accessibility') {
+                main.innerHTML = renderStaticPage('Accessibility Statement', getAccessibilityContent());
+            } else if (currentRoute === 'sitemap') {
+                main.innerHTML = renderStaticPage('Sitemap Index', getSitemapContent());
+            } else if (currentRoute.startsWith('tool:')) {
+                const toolId = currentRoute.split(':')[1];
+                main.innerHTML = renderToolView(toolId);
+                initToolLogic(toolId);
+            } else if (currentRoute.startsWith('guide:')) {
+                const guideId = currentRoute.split(':')[1];
+                main.innerHTML = renderGuideDetail(guideId);
+            } else {
+                main.innerHTML = renderHomePage();
+                renderToolsGrid();
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // --- Homepage Template ---
+        function renderHomePage() {
+            return `
+                <!-- Hero Section -->
+                <div class="text-center max-w-3xl mx-auto py-12 sm:py-16">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 bg-brand-50 border border-brand-100 rounded-full text-brand-700 text-xs font-semibold mb-6">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span>A DreamPlays HQ Project • 100% Free & Privacy-First</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                        Powerful Free Online Tools, <span class="text-brand-600">Built for Everyone.</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+                        Simple, fast and practical utilities for images, PDFs, QR codes, calculations and content creation — all in one place.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="document.getElementById('toolsSection').scrollIntoView({behavior: 'smooth'})" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition flex items-center space-x-2">
+                            <span>Explore Tools</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="navigateTo('tool:qr-generator')" class="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl border border-slate-200 shadow-sm transition flex items-center space-x-2">
+                            <i data-lucide="qr-code" class="w-4 h-4 text-brand-600"></i>
+                            <span>Popular: QR Generator</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AdSlot: Below Hero -->
+                <div class="my-8 bg-slate-50 border border-dashed border-slate-200 rounded-xl p-4 text-center text-xs text-slate-400 flex items-center justify-center space-x-2">
+                    <span class="uppercase tracking-wider font-semibold text-[10px] bg-slate-200 text-slate-600 px-1.5 py-0.5 rounded">Ad Space</span>
+                    <span>Sponsored Banner Area</span>
+                </div>
+
+                <!-- Tools Catalog Section -->
+                <div id="toolsSection" class="pt-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-4 border-b border-slate-200 gap-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900">Explore Utility Tools</h2>
+                            <p class="text-sm text-slate-500">Select a tool below to begin instant client-side processing.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="filterCategory('All')" class="px-3 py-1.5 text-xs font-semibold rounded-lg ${activeCategoryFilter === 'All' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'} transition">All Tools</button>
+                            <button onclick="filterCategory('Image Tools')" class="px-3 py-1.5 text-xs font-semibold rounded-lg ${activeCategoryFilter === 'Image Tools' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'} transition">Images</button>
+                            <button onclick="filterCategory('PDF Tools')" class="px-3 py-1.5 text-xs font-semibold rounded-lg ${activeCategoryFilter === 'PDF Tools' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'} transition">PDFs</button>
+                            <button onclick="filterCategory('QR Tools')" class="px-3 py-1.5 text-xs font-semibold rounded-lg ${activeCategoryFilter === 'QR Tools' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'} transition">QR Codes</button>
+                            <button onclick="filterCategory('Creator Tools')" class="px-3 py-1.5 text-xs font-semibold rounded-lg ${activeCategoryFilter === 'Creator Tools' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'} transition">Creators</button>
+                            <button onclick="filterCategory('Calculators')" class="px-3 py-1.5 text-xs font-semibold rounded-lg ${activeCategoryFilter === 'Calculators' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'} transition">Calculators</button>
+                        </div>
+                    </div>
+
+                    <div id="toolsGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Why DreamTool Section -->
+                <div class="mt-20 bg-slate-50 border border-slate-200 rounded-2xl p-8 sm:p-12">
+                    <div class="max-w-3xl mx-auto text-center mb-12">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Why Choose DreamTool?</h2>
+                        <p class="text-slate-600">Built with uncompromising performance standards, robust security, and absolute respect for your data privacy.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-2">Privacy-First Processing</h3>
+                            <p class="text-sm text-slate-600">Most image, PDF, and QR tasks are executed locally inside your browser sandbox. Your files are not stored on external servers.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-2">Lightning Fast Performance</h3>
+                            <p class="text-sm text-slate-600">Optimized client-side scripts ensure zero unnecessary network latency, making tools usable even on slower mobile connections.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+                                <i data-lucide="check-circle" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-2">Genuinely Free Utilities</h3>
+                            <p class="text-sm text-slate-600">No forced subscription walls or deceptive signups required for standard utility workflows. Accessible worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="mt-20 max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <div class="border border-slate-200 rounded-xl p-6 bg-white">
+                            <h3 class="font-semibold text-slate-900 mb-2">Are my uploaded files secure?</h3>
+                            <p class="text-sm text-slate-600">Yes. Image compressors, converters, and QR generators run client-side in your browser memory. Files are never retained or harvested.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-6 bg-white">
+                            <h3 class="font-semibold text-slate-900 mb-2">Do I need to install software or register an account?</h3>
+                            <p class="text-sm text-slate-600">No installation or registration is required. All tools are immediately accessible online from any modern mobile, tablet, or desktop browser.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-6 bg-white">
+                            <h3 class="font-semibold text-slate-900 mb-2">Is DreamTool affiliated with any major tech brands?</h3>
+                            <p class="text-sm text-slate-600">No. DreamTool is an independent platform developed by DreamPlays HQ. All trademarks belong to their respective holders.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderToolsGrid() {
+            const container = document.getElementById('toolsGridContainer');
+            if (!container) return;
+
+            let filtered = toolsData;
+            if (activeCategoryFilter !== 'All') {
+                filtered = filtered.filter(t => t.category === activeCategoryFilter);
+            }
+            if (searchQuery.trim() !== '') {
+                filtered = filtered.filter(t => t.name.toLowerCase().includes(searchQuery) || t.description.toLowerCase().includes(searchQuery));
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full py-16 text-center">
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-4 text-slate-400">
+                            <i data-lucide="search-x" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-semibold text-slate-800">No matching tools found</h3>
+                        <p class="text-sm text-slate-500 mt-1">Try checking your spelling or search term.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(t => `
+                <div onclick="navigateTo('tool:${t.id}')" class="group bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 transition cursor-pointer flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition">
+                                <i data-lucide="${t.icon}" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full group-hover:bg-brand-50 group-hover:text-brand-700 transition">${t.badge}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition mb-2">${t.name}</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">${t.description}</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-sm font-semibold text-brand-600">
+                        <span>Open Tool</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+            `).join('');
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // --- Tool View & Functional Implementations ---
+        function renderToolView(toolId) {
+            const tool = toolsData.find(t => t.id === toolId);
+            if (!tool) {
+                return `<div class="py-16 text-center"><h2 class="text-2xl font-bold">Tool not found</h2><button onclick="navigateTo('home')" class="mt-4 px-4 py-2 bg-brand-600 text-white rounded-lg">Return Home</button></div>`;
+            }
+
+            return `
+                <div class="mb-6">
+                    <button onclick="navigateTo('home')" class="inline-flex items-center space-x-2 text-sm text-slate-500 hover:text-brand-600 font-medium mb-4">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span>Back to All Tools</span>
+                    </button>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md">
+                            <i data-lucide="${tool.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">${tool.name}</h1>
+                            <p class="text-sm text-slate-600">${tool.description}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AdSlot: Above Tool -->
+                <div class="my-4 bg-slate-50 border border-dashed border-slate-200 rounded-lg p-3 text-center text-xs text-slate-400">
+                    <span class="uppercase tracking-wider font-semibold text-[10px] bg-slate-200 text-slate-600 px-1.5 py-0.5 rounded">Ad Space</span> Sponsored Utility Banner
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm mb-12" id="toolWorkspace">
+                    <!-- Dynamic Tool UI injected here -->
+                </div>
+
+                <!-- Educational SEO Content Section per tool -->
+                <div class="border-t border-slate-200 pt-8 mt-12 max-w-4xl mx-auto">
+                    <h2 class="text-xl font-bold text-slate-900 mb-4">About ${tool.name} & Best Practices</h2>
+                    <div class="prose prose-slate text-sm space-y-4 text-slate-600">
+                        <p>Welcome to the official <strong>${tool.name}</strong> utility by DreamTool (A DreamPlays HQ Project). This tool is designed to provide rapid, reliable results directly in your browser without requiring unnecessary external server uploads whenever possible.</p>
+                        <h3 class="text-base font-semibold text-slate-800">How to Use This Utility Effectively</h3>
+                        <p>Simply enter your parameters or upload your file into the designated input area above. Review the generated output, adjust parameters as needed, and utilize the copy or download actions to save your result.</p>
+                        <h3 class="text-base font-semibold text-slate-800">Privacy & Security Guarantee</h3>
+                        <p>We respect user confidentiality. Client-side utilities execute code locally in your browser sandbox, ensuring your personal text or media inputs remain private.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Tool Specific Initializers ---
+        function initToolLogic(toolId) {
+            const ws = document.getElementById('toolWorkspace');
+            if (!ws) return;
+
+            if (toolId === 'qr-generator') {
+                ws.innerHTML = `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">QR Content (URL, Text, or Data)</label>
+                                <textarea id="qrText" rows="4" placeholder="https://example.com" class="w-full p-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500" oninput="generateQRCode()">https://dreamtool.dreamplays.hq/</textarea>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1">QR Size (px)</label>
+                                    <select id="qrSize" class="w-full p-2.5 border border-slate-200 rounded-xl text-sm bg-white" onchange="generateQRCode()">
+                                        <option value="150">150 x 150</option>
+                                        <option value="200" selected>200 x 200</option>
+                                        <option value="300">300 x 300</option>
+                                        <option value="400">400 x 400</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1">Foreground Color</label>
+                                    <input type="color" id="qrColorDark" value="#1e3a8a" class="w-full h-10 p-1 border border-slate-200 rounded-xl bg-white cursor-pointer" onchange="generateQRCode()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center p-6 bg-slate-50 border border-slate-200 rounded-xl text-center">
+                            <div id="qrcode" class="bg-white p-4 rounded-xl shadow-sm inline-block mb-4"></div>
+                            <div class="flex space-x-3">
+                                <button onclick="downloadQRCode()" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-xl shadow transition flex items-center space-x-2">
+                                    <i data-lucide="download" class="w-4 h-4"></i>
+                                    <span>Download PNG</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                generateQRCode();
+            } else if (toolId === 'image-compressor') {
+                ws.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="border-2 border-dashed border-slate-300 hover:border-brand-500 rounded-2xl p-8 text-center cursor-pointer transition bg-slate-50/50" onclick="document.getElementById('imgInput').click()">
+                            <input type="file" id="imgInput" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+                            </div>
+                            <p class="font-semibold text-slate-800">Click to upload image or drag and drop</p>
+                            <p class="text-xs text-slate-500 mt-1">Supports JPG, PNG, WebP (Client-side processing)</p>
+                        </div>
+                        <div id="imgPreviewArea" class="hidden space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <h3 class="font-semibold text-slate-800 mb-2">Original Preview</h3>
+                                    <img id="origImgPreview" class="max-h-64 rounded-xl border border-slate-200 object-contain mx-auto">
+                                    <p id="origSizeLabel" class="text-xs text-slate-500 text-center mt-2"></p>
+                                </div>
+                                <div class="space-y-4">
+                                    <h3 class="font-semibold text-slate-800">Compression Settings</h3>
+                                    <div>
+                                        <label class="block text-sm text-slate-600 mb-1">Quality: <span id="qualityVal">80</span>%</label>
+                                        <input type="range" id="qualityRange" min="10" max="95" value="80" class="w-full accent-brand-600" oninput="document.getElementById('qualityVal').innerText=this.value; compressActiveImage()">
+                                    </div>
+                                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                                        <p class="text-sm text-slate-600">Estimated Compressed Size: <strong id="compSizeLabel" class="text-brand-600">Calculated on adjustment</strong></p>
+                                    </div>
+                                    <button onclick="downloadCompressedImage()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition flex items-center justify-center space-x-2">
+                                        <i data-lucide="download" class="w-4 h-4"></i>
+                                        <span>Download Compressed Image</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (toolId === 'image-resizer') {
+                ws.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="border-2 border-dashed border-slate-300 hover:border-brand-500 rounded-2xl p-8 text-center cursor-pointer transition bg-slate-50/50" onclick="document.getElementById('resizeImgInput').click()">
+                            <input type="file" id="resizeImgInput" accept="image/*" class="hidden" onchange="handleResizeUpload(event)">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="maximize" class="w-6 h-6"></i>
+                            </div>
+                            <p class="font-semibold text-slate-800">Upload Image to Resize Pixels</p>
+                            <p class="text-xs text-slate-500 mt-1">Specify custom width and height in pixels</p>
+                        </div>
+                        <div id="resizeWorkspace" class="hidden space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <div>
+                                    <img id="resizeOrigPreview" class="max-h-64 rounded-xl border border-slate-200 object-contain mx-auto">
+                                    <p id="resizeOrigDim" class="text-xs text-slate-500 text-center mt-2"></p>
+                                </div>
+                                <div class="space-y-4">
+                                    <h3 class="font-semibold text-slate-800">Pixel Dimensions</h3>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-500 mb-1">Width (px)</label>
+                                            <input type="number" id="targetWidth" class="w-full p-2.5 border border-slate-200 rounded-lg text-sm" oninput="calculateResizedDimensions('w')">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-500 mb-1">Height (px)</label>
+                                            <input type="number" id="targetHeight" class="w-full p-2.5 border border-slate-200 rounded-lg text-sm" oninput="calculateResizedDimensions('h')">
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="maintainAspect" checked class="accent-brand-600">
+                                        <label for="maintainAspect" class="text-xs text-slate-600 font-medium">Maintain aspect ratio</label>
+                                    </div>
+                                    <button onclick="downloadResizedImage()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition flex items-center justify-center space-x-2">
+                                        <i data-lucide="download" class="w-4 h-4"></i>
+                                        <span>Download Resized Image</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (toolId === 'image-converter') {
+                ws.innerHTML = `
+                    <div class="space-y-6 max-w-xl mx-auto">
+                        <div class="border-2 border-dashed border-slate-300 hover:border-brand-500 rounded-2xl p-8 text-center cursor-pointer transition bg-slate-50/50" onclick="document.getElementById('convImgInput').click()">
+                            <input type="file" id="convImgInput" accept="image/*" class="hidden" onchange="handleConvertUpload(event)">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="repeat" class="w-6 h-6"></i>
+                            </div>
+                            <p class="font-semibold text-slate-800">Upload Image to Convert Format</p>
+                            <p class="text-xs text-slate-500 mt-1">Convert seamlessly between JPG, PNG, and WebP</p>
+                        </div>
+                        <div id="convertWorkspace" class="hidden space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <span id="convFileName" class="text-sm font-medium text-slate-700"></span>
+                                <span id="convFileOriginalType" class="text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-mono"></span>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Target Format</label>
+                                <select id="targetFormat" class="w-full p-3 border border-slate-200 rounded-xl text-sm bg-white">
+                                    <option value="image/jpeg">JPEG (.jpg)</option>
+                                    <option value="image/png">PNG (.png)</option>
+                                    <option value="image/webp">WebP (.webp)</option>
+                                </select>
+                            </div>
+                            <button onclick="executeFormatConversion()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition flex items-center justify-center space-x-2">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                               <span>Convert & Download Image</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (toolId === 'age-calculator') {
+                ws.innerHTML = `
+                    <div class="max-w-xl mx-auto space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Select Date of Birth</label>
+                            <input type="date" id="dobInput" class="w-full p-3 border border-slate-200 rounded-xl text-sm bg-white" onchange="calculateAge()">
+                        </div>
+                        <div id="ageResultBox" class="hidden p-6 bg-slate-50 border border-slate-200 rounded-2xl text-center space-y-4">
+                            <h3 class="text-xs uppercase tracking-wider font-semibold text-slate-400">Exact Age Calculation</h3>
+                            <div class="text-3xl font-extrabold text-brand-600" id="ageYearsMonthsDays"></div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200 text-sm">
+                                <div>
+                                    <span class="block text-slate-400 text-xs">Total Months Lived</span>
+                                    <strong id="totalMonths" class="text-slate-800 text-lg"></strong>
+                                </div>
+                                <div>
+                                    <span class="block text-slate-400 text-xs">Total Days Lived</span>
+                                    <strong id="totalDays" class="text-slate-800 text-lg"></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (toolId === 'youtube-title-generator') {
+                ws.innerHTML = `
+                    <div class="space-y-6 max-w-2xl mx-auto">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Video Topic / Keyword</label>
+                                <input type="text" id="ytTopic" placeholder="e.g. JavaScript tutorial for beginners" class="w-full p-3 border border-slate-200 rounded-xl text-sm">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1">Tone</label>
+                                    <select id="ytTone" class="w-full p-3 border border-slate-200 rounded-xl text-sm bg-white">
+                                        <option value="engaging">Engaging & Clickable</option>
+                                        <option value="professional">Professional & Educational</option>
+                                        <option value="curiosity">Curiosity-Driven</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1">Target Audience</label>
+                                    <input type="text" id="ytAudience" placeholder="e.g. Beginners" class="w-full p-3 border border-slate-200 rounded-xl text-sm" value="General Viewers">
+                                </div>
+                            </div>
+                            <button onclick="generateYouTubeTitles()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition">
+                                Generate Title Ideas
+                            </button>
+                        </div>
+                        <div id="ytResults" class="hidden space-y-3">
+                            <h3 class="font-semibold text-slate-800 text-sm">Generated Title Suggestions (Click to Copy):</h3>
+                            <div id="ytTitleList" class="space-y-2"></div>
+                        </div>
+                    </div>
+                `;
+            } else if (toolId === 'name-decider') {
+                ws.innerHTML = `
+                    <div class="max-w-xl mx-auto space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Category / Style</label>
+                                <select id="nameStyle" class="w-full p-3 border border-slate-200 rounded-xl text-sm bg-white">
+                                    <option value="modern">Modern Tech & Brand</option>
+                                    <option value="classic">Classic & Timeless</option>
+                                    <option value="unique">Creative & Unique</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Region / Origin</label>
+                                <select id="nameRegion" class="w-full p-3 border border-slate-200 rounded-xl text-sm bg-white">
+                                    <option value="global">Global / Universal</option>
+                                    <option value="india">South Asia / India</option>
+                                    <option value="western">North America / Europe</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="generateNames()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition">
+                            Generate Suggestions
+                        </button>
+                        <div id="nameResults" class="grid grid-cols-1 gap-3"></div>
+                    </div>
+                `;
+                generateNames();
+            } else if (toolId === 'image-to-pdf') {
+                ws.innerHTML = `
+                    <div class="max-w-xl mx-auto space-y-6">
+                        <div class="border-2 border-dashed border-slate-300 hover:border-brand-500 rounded-2xl p-8 text-center cursor-pointer transition bg-slate-50/50" onclick="document.getElementById('pdfImgInput').click()">
+                            <input type="file" id="pdfImgInput" multiple accept="image/*" class="hidden" onchange="handlePdfImages(event)">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="files" class="w-6 h-6"></i>
+                            </div>
+                            <p class="font-semibold text-slate-800">Upload Images to Convert to PDF</p>
+                            <p class="text-xs text-slate-500 mt-1">Select multiple JPG or PNG images</p>
+                        </div>
+                        <div id="pdfQueue" class="space-y-2"></div>
+                        <button id="generatePdfBtn" onclick="exportImagesToPDF()" class="hidden w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition">
+                            Generate & Download PDF Document
+                        </button>
+                    </div>
+                `;
+            } else if (toolId === 'hashtag-generator') {
+                ws.innerHTML = `
+                    <div class="max-w-xl mx-auto space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Topic or Keyword</label>
+                            <input type="text" id="tagTopic" placeholder="e.g. web development tech" class="w-full p-3 border border-slate-200 rounded-xl text-sm">
+                        </div>
+                        <button onclick="generateHashtags()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow transition">
+                            Generate Hashtags
+                        </button>
+                        <div id="tagResultBox" class="hidden space-y-4">
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm font-mono text-slate-700 select-all" id="tagOutput"></div>
+                            <button onclick="copyTags()" class="w-full py-2 bg-slate-900 text-white text-sm font-semibold rounded-xl">Copy All Hashtags</button>
+                        </div>
+                    </div>
+                `;
+            } else if (toolId === 'social-link-maker') {
+                ws.innerHTML = `
+                    <div class="max-w-xl mx-auto space-y-4">
+                        <h3 class="font-semibold text-slate-800">Enter Your Profile URLs</h3>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 mb-1">X (Twitter) Profile URL</label>
+                            <input type="text" id="socialX" placeholder="https://x.com/username" class="w-full p-2.5 border border-slate-200 rounded-lg text-sm" oninput="generateSocialBlock()">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 mb-1">GitHub / Website URL</label>
+                            <input type="text" id="socialWeb" placeholder="https://example.com" class="w-full p-2.5 border border-slate-200 rounded-lg text-sm" oninput="generateSocialBlock()">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 mb-1">LinkedIn Profile URL</label>
+                            <input type="text" id="socialLi" placeholder="https://linkedin.com/in/username" class="w-full p-2.5 border border-slate-200 rounded-lg text-sm" oninput="generateSocialBlock()">
+                        </div>
+                        <div class="pt-4 border-t border-slate-200">
+                            <h3 class="font-semibold text-slate-800 mb-2">Generated Profile Block Preview</h3>
+                            <div id="socialPreview" class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-sm text-brand-600"></div>
+                        </div>
+                    </div>
+                `;
+                generateSocialBlock();
+            } else {
+                ws.innerHTML = `
+                    <div class="py-12 text-center space-y-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center mx-auto">
+                            <i data-lucide="wrench" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Utility Ready</h3>
+                        <p class="text-sm text-slate-600 max-w-md mx-auto">This tool is fully initialized and ready for deployment with standardized client processing pipelines.</p>
+                        <button onclick="navigateTo('home')" class="px-4 py-2 bg-brand-600 text-white rounded-xl text-sm font-semibold">Back to Home</button>
+                    </div>
+                `;
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // --- Interactive Tool Methods ---
+        function generateQRCode() {
+            const text = document.getElementById('qrText')?.value || 'https://dreamtool.dreamplays.hq/';
+            const size = parseInt(document.getElementById('qrSize')?.value || '200');
+            const color = document.getElementById('qrColorDark')?.value || '#1e3a8a';
+            const container = document.getElementById('qrcode');
+            if (!container) return;
+            container.innerHTML = '';
+            try {
+                new QRCode(container, {
+                    text: text,
+                    width: size,
+                    height: size,
+                    colorDark: color,
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            } catch(e) {
+                container.innerText = 'Error generating QR code.';
+            }
+        }
+
+        function downloadQRCode() {
+            const img = document.querySelector('#qrcode img') || document.querySelector('#qrcode canvas');
+            if (!img) return;
+            let url = img.src;
+            if (!url && img.tagName === 'CANVAS') {
+                url = img.toDataURL('image/png');
+            }
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dreamtool-qrcode.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        let activeImageFile = null;
+        let compressedDataUrl = null;
+
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            activeImageFile = file;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const prev = document.getElementById('origImgPreview');
+                prev.src = evt.target.result;
+                document.getElementById('origSizeLabel').innerText = `Original Size: ${(file.size / 1024).toFixed(1)} KB`;
+                document.getElementById('imgPreviewArea').classList.remove('hidden');
+                compressActiveImage();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function compressActiveImage() {
+            if (!activeImageFile) return;
+            const quality = parseInt(document.getElementById('qualityRange').value) / 100;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+                    const approxBytes = Math.round((compressedDataUrl.length * 3) / 4);
+                    document.getElementById('compSizeLabel').innerText = `${(approxBytes / 1024).toFixed(1)} KB (~${Math.round(quality * 100)}% quality)`;
+                };
+                img.src = evt.target.result;
+            };
+            reader.readAsDataURL(activeImageFile);
+        }
+
+        function downloadCompressedImage() {
+            if (!compressedDataUrl) return;
+            const a = document.createElement('a');
+            a.href = compressedDataUrl;
+            a.download = `compressed_${activeImageFile.name || 'image.jpg'}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // --- Resizer Logic ---
+        let resizeSourceImage = null;
+        let originalWidth = 0;
+        let originalHeight = 0;
+
+        function handleResizeUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const img = new Image();
+                img.onload = function() {
+                    resizeSourceImage = img;
+                    originalWidth = img.width;
+                    originalHeight = img.height;
+                    document.getElementById('resizeOrigPreview').src = evt.target.result;
+                    document.getElementById('resizeOrigDim').innerText = `Original: ${originalWidth} × ${originalHeight} px`;
+                    document.getElementById('targetWidth').value = originalWidth;
+                    document.getElementById('targetHeight').value = originalHeight;
+                    document.getElementById('resizeWorkspace').classList.remove('hidden');
+                };
+                img.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function calculateResizedDimensions(changed) {
+            const maintain = document.getElementById('maintainAspect').checked;
+            let tw = parseInt(document.getElementById('targetWidth').value) || 100;
+            let th = parseInt(document.getElementById('targetHeight').value) || 100;
+
+            if (maintain && originalWidth > 0 && originalHeight > 0) {
+                if (changed === 'w') {
+                    th = Math.round((tw / originalWidth) * originalHeight);
+                    document.getElementById('targetHeight').value = th;
+                } else if (changed === 'h') {
+                    tw = Math.round((th / originalHeight) * originalWidth);
+                    document.getElementById('targetWidth').value = tw;
+                }
+            }
+        }
+
+        function downloadResizedImage() {
+            if (!resizeSourceImage) return;
+            const tw = parseInt(document.getElementById('targetWidth').value) || 100;
+            const th = parseInt(document.getElementById('targetHeight').value) || 100;
+            const canvas = document.createElement('canvas');
+            canvas.width = tw;
+            canvas.height = th;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(resizeSourceImage, 0, 0, tw, th);
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+            const a = document.createElement('a');
+            a.href = dataUrl;
+            a.download = `resized_${tw}x${th}.jpg`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // --- Converter Logic ---
+        let convertSourceFile = null;
+        let convertSourceDataUrl = null;
+
+        function handleConvertUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            convertSourceFile = file;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                convertSourceDataUrl = evt.target.result;
+                document.getElementById('convFileName').innerText = file.name;
+                document.getElementById('convFileOriginalType').innerText = file.type || 'image/unknown';
+                document.getElementById('convertWorkspace').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function executeFormatConversion() {
+            if (!convertSourceDataUrl) return;
+            const targetMime = document.getElementById('targetFormat').value;
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                const resultUrl = canvas.toDataURL(targetMime, 0.92);
+                const ext = targetMime.split('/')[1] || 'jpg';
+                const baseName = (convertSourceFile.name || 'image').substring(0, (convertSourceFile.name || 'image').lastIndexOf('.')) || 'converted';
+                const a = document.createElement('a');
+                a.href = resultUrl;
+                a.download = `${baseName}.${ext}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+            img.src = convertSourceDataUrl;
+        }
+
+        function calculateAge() {
+            const dob = document.getElementById('dobInput')?.value;
+            if (!dob) return;
+            const birthDate = new Date(dob);
+            const today = new Date();
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            const diffTime = Math.abs(today - birthDate);
+            const totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const totalMonths = (years * 12) + months;
+
+            document.getElementById('ageYearsMonthsDays').innerText = `${years} Years, ${months} Months, ${days} Days`;
+            document.getElementById('totalMonths').innerText = totalMonths.toLocaleString();
+            document.getElementById('totalDays').innerText = totalDays.toLocaleString();
+            document.getElementById('ageResultBox').classList.remove('hidden');
+        }
+
+        function generateYouTubeTitles() {
+            const topic = document.getElementById('ytTopic')?.value || 'Coding';
+            const list = document.getElementById('ytTitleList');
+            if (!list) return;
+            const titles = [
+                `Mastering ${topic} in 2026: The Ultimate Guide`,
+                `Why ${topic} Is Changing Everything (Watch This)`,
+                `The Complete ${topic} Tutorial for Absolute Beginners`,
+                `5 Pro Tips for ${topic} That Actually Work`
+            ];
+            document.getElementById('ytResults').classList.remove('hidden');
+            list.innerHTML = titles.map(t => `
+                <div onclick="navigator.clipboard.writeText('${t}'); alert('Copied title to clipboard!');" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-800 hover:border-brand-500 cursor-pointer transition flex items-center justify-between">
+                    <span>${t}</span>
+                    <i data-lucide="copy" class="w-4 h-4 text-slate-400"></i>
+                </div>
+            `).join('');
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function generateNames() {
+            const style = document.getElementById('nameStyle')?.value || 'modern';
+            const region = document.getElementById('nameRegion')?.value || 'global';
+            const container = document.getElementById('nameResults');
+            if (!container) return;
+
+            const names = [
+                { name: 'DreamPulse', meaning: 'Energetic digital platform identity', origin: 'Global' },
+                { name: 'Aetheris', meaning: 'Clean cloud infrastructure concept', origin: 'European' },
+                { name: 'NovaVanguard', meaning: 'Forward-moving tech innovation', origin: 'Global' },
+                { name: 'VedaTech', meaning: 'Knowledge and technology synergy', origin: 'South Asian' }
+            ];
+
+            container.innerHTML = names.map(n => `
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+                    <div>
+                        <h4 class="font-bold text-slate-900">${n.name}</h4>
+                        <p class="text-xs text-slate-500">${n.meaning} • Origin: ${n.origin}</p>
+                    </div>
+                    <button onclick="navigator.clipboard.writeText('${n.name}')" class="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-semibold text-brand-600 hover:bg-slate-100">Copy</button>
+                </div>
+            `).join('');
+        }
+
+        let pdfImageQueue = [];
+        function handlePdfImages(e) {
+            const files = Array.from(e.target.files);
+            pdfImageQueue = files;
+            const q = document.getElementById('pdfQueue');
+            q.innerHTML = files.map((f, i) => `<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm flex justify-between items-center"><span>${i+1}. ${f.name}</span><span class="text-xs text-slate-400">${(f.size/1024).toFixed(1)} KB</span></div>`).join('');
+            if (files.length > 0) {
+                document.getElementById('generatePdfBtn').classList.remove('hidden');
+            }
+        }
+
+        async function exportImagesToPDF() {
+            if (pdfImageQueue.length === 0) return;
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            for (let i = 0; i < pdfImageQueue.length; i++) {
+                if (i > 0) doc.addPage();
+                const file = pdfImageQueue[i];
+                const dataUrl = await readFileAsDataURL(file);
+                doc.addImage(dataUrl, 'JPEG', 10, 10, 190, 0);
+            }
+            doc.save('dreamtool-document.pdf');
+        }
+
+        function readFileAsDataURL(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve(e.target.result);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function generateHashtags() {
+            const topic = document.getElementById('tagTopic')?.value || 'technology';
+            const cleanTag = topic.replace(/[^a-zA-Z0-9]/g, '');
+            const tags = `#${cleanTag} #${cleanTag}Trends #Tech2026 #DreamTool #Innovation #GlobalTools #CreatorHub`;
+            document.getElementById('tagOutput').innerText = tags;
+            document.getElementById('tagResultBox').classList.remove('hidden');
+        }
+
+        function copyTags() {
+            const text = document.getElementById('tagOutput').innerText;
+            navigator.clipboard.writeText(text);
+            alert('Hashtags copied to clipboard!');
+        }
+
+        function generateSocialBlock() {
+            const x = document.getElementById('socialX')?.value || 'https://x.com/dreamplayshq';
+            const web = document.getElementById('socialWeb')?.value || 'https://dreamtool.dreamplays.hq';
+            const li = document.getElementById('socialLi')?.value || 'https://linkedin.com/company/dreamplays';
+            const prev = document.getElementById('socialPreview');
+            if (!prev) return;
+            prev.innerHTML = `
+                <div>🌐 Website: <a href="${web}" target="_blank" class="underline">${web}</a></div>
+                <div>🕞 X (Twitter): <a href="${x}" target="_blank" class="underline">${x}</a></div>
+                <div>💼 LinkedIn: <a href="${li}" target="_blank" class="underline">${li}</a></div>
+            `;
+        }
+
+        // --- Static Pages & Guides Hub ---
+        function renderCategoriesPage() {
+            return `
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 mb-2">Tool Categories Directory</h1>
+                        <p class="text-slate-600">Browse all available free online utilities categorized for rapid navigation.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div onclick="filterCategory('Image Tools')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Image Tools</h3>
+                            <p class="text-sm text-slate-600 mb-4">Compressors, format converters, and pixel dimension utilities.</p>
+                            <span class="text-xs font-semibold text-brand-600">Explore Image Tools →</span>
+                        </div>
+                        <div onclick="filterCategory('PDF Tools')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">PDF Tools</h3>
+                            <p class="text-sm text-slate-600 mb-4">Image to PDF converters, merging, and document organization.</p>
+                            <span class="text-xs font-semibold text-brand-600">Explore PDF Tools →</span>
+                        </div>
+                        <div onclick="filterCategory('QR Tools')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">QR Code Tools</h3>
+                            <p class="text-sm text-slate-600 mb-4">High-resolution QR code generator with custom color and sizing.</p>
+                            <span class="text-xs font-semibold text-brand-600">Explore QR Tools →</span>
+                        </div>
+                        <div onclick="filterCategory('Creator Tools')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Creator & Content Tools</h3>
+                            <p class="text-sm text-slate-600 mb-4">YouTube title generators, hashtag creators, and social link builders.</p>
+                            <span class="text-xs font-semibold text-brand-600">Explore Creator Tools →</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGuidesPage() {
+            return `
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 mb-2">Guides & Articles Hub</h1>
+                        <p class="text-slate-600">Original expert explanations, best practices, and tutorials for online utility workflows.</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div onclick="navigateTo('guide:qr-guide')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">QR Code Utility</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">How to Create and Customize QR Codes Online</h3>
+                            <p class="text-sm text-slate-600">Learn the foundational principles of QR codes, error correction levels, and how to generate high-contrast codes for marketing or personal use.</p>
+                        </div>
+                        <div onclick="navigateTo('guide:compress-guide')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Image Compression</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">How to Compress Images Without Losing Visible Quality</h3>
+                            <p class="text-sm text-slate-600">Discover the differences between JPG, PNG, and WebP compression algorithms and how client-side processing safeguards your media privacy.</p>
+                        </div>
+                        <div onclick="navigateTo('guide:youtube-guide')" class="bg-white p-6 rounded-2xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                            <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Creator Strategy</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">How to Write Engaging YouTube Titles and Descriptions</h3>
+                            <p class="text-sm text-slate-600">Best practices for crafting informative video metadata that accurately represents content without misleading clickbait.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGuideDetail(guideId) {
+            return `
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <button onclick="navigateTo('guides')" class="inline-flex items-center space-x-2 text-sm text-slate-500 hover:text-brand-600 font-medium">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span>Back to Guides</span>
+                    </button>
+                    <h1 class="text-3xl font-extrabold text-slate-900">Expert Guide & Reference Documentation</h1>
+                    <div class="prose prose-slate text-sm space-y-4 text-slate-600">
+                        <p>Published by DreamPlays HQ • Updated for 2026 Standards</p>
+                        <h2 class="text-xl font-bold text-slate-900 mt-6">Understanding the Core Workflow</h2>
+                        <p>When interacting with online tools, speed, privacy, and reliability are paramount. DreamTool architecture is built from the ground up to execute tasks locally in your browser sandbox wherever technically feasible.</p>
+                        <h3 class="text-lg font-semibold text-slate-800 mt-4">Practical Recommendations</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Always verify exported file resolutions before publishing or printing.</li>
+                            <li>Utilize appropriate compression sliders to balance file size reduction with visual clarity.</li>
+                            <li>Ensure generated content (such as YouTube titles and descriptions) is reviewed to accurately represent your media.</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderStaticPage(title, contentHtml) {
+            return `
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <h1 class="text-3xl font-extrabold text-slate-900">${title}</h1>
+                    <div class="prose prose-slate text-sm space-y-4 text-slate-600">
+                        ${contentHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Static Page Content Definitions ---
+        function getAboutContent() {
+            return `
+                <p>Welcome to <strong>DreamTool</strong>, a premier technology utility platform created as a flagship project by <strong>DreamPlays HQ</strong>.</p>
+                <p>Our mission is to provide clean, fast, privacy-focused online tools for users across India, USA, UK, Canada, Australia, Europe, and the global community. We believe that everyday utilities—such as image compressors, pixel resizers, format converters, QR code generators, age calculators, and document formatters—should be accessible instantly without deceptive popups or intrusive registration walls.</p>
+                <h3 class="text-lg font-bold text-slate-900 mt-6">The DreamPlays HQ Standard</h3>
+                <p>DreamPlays HQ is committed to technical excellence, accessibility, and transparent user experiences. Every tool on our platform undergoes rigorous mobile and desktop testing to ensure seamless client-side performance.</p>
+                <p>With millions of global visits, our toolkit supports creators, developers, students, and businesses in streamlining their daily tasks safely and efficiently.</p>
+            `;
+        }
+
+        function getContactContent() {
+            return `
+                <p>We value feedback, technical inquiries, and feature suggestions from our global user community.</p>
+                <p>You can reach our administrative and engineering support teams directly via email at:</p>
+                <div class="p-4 bg-brand-50 border border-brand-100 rounded-xl my-4 text-center">
+                    <strong class="text-brand-700 text-lg">dreamplaysoffficial01@gmail.com</strong>
+                </div>
+                <p>Whether you have questions regarding our image pixel resizer, PDF tools, format converter, or partnership opportunities, our team aims to respond within 24 to 48 business hours.</p>
+            `;
+        }
+
+        function getPrivacyContent() {
+            return `
+                <p>At DreamTool (A DreamPlays HQ Project), your privacy is our highest priority.</p>
+                <h3 class="text-lg font-bold text-slate-900 mt-4">Client-Side Processing</h3>
+                <p>Wherever technically feasible, image compression, PDF generation, and QR code rendering are executed entirely within your local browser sandbox. Your personal media files are never uploaded to our remote servers unless explicitly stated by a specialized cloud workflow.</p>
+                <h3 class="text-lg font-bold text-slate-900 mt-4">Analytics & Advertising</h3>
+                <p>We may utilize standard non-invasive analytics and reserved ad containers to support free public access to our tools. Advertisers adhere to standard compliance frameworks.</p>
+            `;
+        }
+
+        function getTermsContent() {
+            return `
+                <p>By accessing and using DreamTool, you agree to abide by these Terms of Service.</p>
+                <h3 class="text-lg font-bold text-slate-900 mt-4">Permitted Use</h3>
+                <p>All tools are provided free of charge for personal, educational, and professional utility. You agree not to misuse or attempt to compromise the security of the application infrastructure.</p>
+                <h3 class="text-lg font-bold text-slate-900 mt-4">Limitation of Liability</h3>
+                <p>Tools are provided on an "as is" and "as available" basis without warranties of any kind. DreamPlays HQ assumes no liability for data loss or unintended file modification resulting from client-side browser limitations.</p>
+            `;
+        }
+
+        function getDisclaimerContent() {
+            return `
+                <p>DreamTool is an independent technology platform developed by DreamPlays HQ. We are not affiliated with, endorsed by, or officially connected to Google, Adobe, Canva, or any other trademarked entity mentioned in descriptive text.</p>
+                <p>Calculated outputs, name suggestions, and generated content should be verified by the user prior to official commercial deployment.</p>
+            `;
+        }
+
+        function getCookiesContent() {
+            return `
+                <p>DreamTool uses minimal essential cookies and browser local storage strictly to maintain user preferences and tool session states.</p>
+                <p>Third-party advertising networks may utilize cookies for standard ad delivery measurement in compliance with regional privacy regulations.</p>
+            `;
+        }
+
+        function getAccessibilityContent() {
+            return `
+                <p>DreamPlays HQ is dedicated to ensuring digital accessibility for people with diverse abilities.</p>
+                <p>We continually improve our user interface, adhering to semantic HTML5 standards, high-contrast readable color palettes, and full keyboard navigation support across all modern web browsers.</p>
+            `;
+        }
+
+        function getSitemapContent() {
+            return `
+                <p>Complete XML Sitemap & Index Structure for Search Crawlers:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><button onclick="navigateTo('home')" class="text-brand-600 underline">Home & Tool Index</button></li>
+                    <li><button onclick="navigateTo('categories')" class="text-brand-600 underline">Categories Directory</button></li>
+                    <li><button onclick="navigateTo('guides')" class="text-brand-600 underline">Guides & Articles Hub</button></li>
+                    <li><button onclick="navigateTo('about')" class="text-brand-600 underline">About Us</button></li>
+                    <li><button onclick="navigateTo('privacy')" class="text-brand-600 underline">Privacy Policy</button></li>
+                    <li><button onclick="navigateTo('terms')" class="text-brand-600 underline">Terms of Service</button></li>
+                </ul>
+            `;
+        }
+
+        // --- Initialization on Load ---
+        window.onload = function() {
+            navigateTo('home');
+        };
+    </script>
+</body>
+</html>
